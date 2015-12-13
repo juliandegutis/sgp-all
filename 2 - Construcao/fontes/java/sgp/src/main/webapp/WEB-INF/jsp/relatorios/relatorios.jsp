@@ -80,13 +80,10 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Administrador <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="ADMreuniao.html">Criar reuniao</a>
+                                <a href="/sgp/admreuniao/">Criar reuniao</a>
                             </li>
                             <li>
-                                <a href="ADMprojetos.html">Criar Projeto</a>
-                            </li>
-							<li>
-                                <a href="ADMusuario.html">Criar usuario</a>
+                                <a href="/sgp/admprojeto/">Criar Projeto</a>
                             </li>
                         </ul>
                     </li>
@@ -142,8 +139,7 @@
                             </div>
 						</div>
 
-                </div>
-             <br><br>
+                </div><br>
 			 </div>
             
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<%@ taglib prefix="c" 
+    uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
 
     <meta charset="utf-8">
@@ -80,13 +81,10 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Administrador <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="ADMreuniao.html">Criar reuniao</a>
+                                <a href="/sgp/admreuniao/">Criar reuniao</a>
                             </li>
                             <li>
-                                <a href="ADMprojetos.html">Criar Projeto</a>
-                            </li>
-							<li>
-                                <a href="ADMusuario.html">Criar usuario</a>
+                                <a href="/sgp/admprojeto/">Criar Projeto</a>
                             </li>
                         </ul>
                     </li>
@@ -123,12 +121,12 @@
                                         <i class="fa fa-comments fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div id="nReuniao"class="huge">7</div>
+                                        <div id="nReuniao"class="huge">${reunioesAgendadas}</div>
                                         <div>Reunioes agendadas</div>
                                     </div>
                                 </div>
                             </div>
-                            <a href="reuniao.html">
+                            <a href="/sgp/reunioes/">
                                 <div class="panel-footer">
                                     <span class="pull-left">Ver reunioes</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -145,12 +143,12 @@
                                         <i class="fa fa-tasks fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div id="projetoF"class="huge">12</div>
+                                        <div id="projetoF"class="huge">${projetosFinalizados}</div>
                                         <div>Projetos finalizados</div>
                                     </div>
                                 </div>
                             </div>
-                            <a href="projetos.html">
+                            <a href="/sgp/projetos/">
                                 <div class="panel-footer">
                                     <span class="pull-left">Ver projetos</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -168,12 +166,12 @@
                                         <i class="fa fa-support fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div id="projetoP"class="huge">9</div>
+                                        <div id="projetoP"class="huge">${projetosPendentes}</div>
                                         <div>Projetos pendentes</div>
                                     </div>
                                 </div>
                             </div>
-                            <a href="projetos.html">
+                            <a href="/sgp/projetos/">
                                 <div class="panel-footer">
                                     <span class="pull-left">Ver projetos</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -198,44 +196,18 @@
                                         <thead>
                                             <tr>
                                                 <th>Local</th>
+                                                <th>Projeto</th>
                                                 <th>Data</th>
                                                 <th>Hora</th>
                                                 
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Sala 1B110</td>
-                                                <td>10/21/2013</td>
-                                                <td>16:00</td>
-                                                
-                                            </tr>
-                                            <tr>
-                                                <td>Sala 1B130</td>
-                                                <td>10/21/2013</td>
-                                                <td>8:00</td>
-                                                
-                                            </tr>
-                                            <tr>
-                                                <td>Sala 1B110</td>
-                                                <td>10/21/2013</td>
-                                                <td>20:00</td>
-                                                
-                                            </tr>
-                                            <tr>
-                                                <td>Sala 3Q240</td>
-                                                <td>10/21/2013</td>
-                                                <td>18:00</td>
-                                                
-                                            </tr>
-                                            <tr>
-                                                <td>Sala 1B110</td>
-                                                <td>10/21/2013</td>
-                                                <td>14:00</td>
-                                                
-                                            </tr>
-                                            
-                                           
+                                            <c:forEach items="${listaReunioes}" var="reuniao">
+												<tr> 
+													<td>${reuniao.nmLocal}</td> <td>${reuniao.nmProjeto}</td> <td>${reuniao.dtInicio}</td> <td>${reuniao.dtHorario}</td>
+												</tr>
+											</c:forEach>
                                         </tbody>
                                     </table>
                                 </div>

@@ -80,13 +80,10 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Administrador <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="ADMreuniao.html">Criar reuniao</a>
+                                <a href="/sgp/admreuniao/">Criar reuniao</a>
                             </li>
                             <li>
-                                <a href="ADMprojetos.html">Criar Projeto</a>
-                            </li>
-							<li>
-                                <a href="ADMusuario.html">Criar usuario</a>
+                                <a href="sgp/admprojeto/">Criar Projeto</a>
                             </li>
                         </ul>
                     </li>
@@ -101,9 +98,50 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                
-             
+                <div class="row">
+                    <div class="col-lg-12">
+					<div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h1 class="panel-title">Projetos</h1>
+                            </div>
+                            <div class="panel-body">
 
+						<br>
+						<div class="col-lg-6">
+						<div id="opcaoBusca" class="form-group">
+                                <label>Buscar por:</label>
+                                <select id="opBusca" class="form-control">
+                                    <option>Reunioes</option>
+                                    <option>Projetos</option>
+                                    
+                                </select>
+								<br>
+								<label>Nome:</label>
+                                <input id="nomeBusca" class="form-control">
+                                <p class="help-block">Buscar pelo nome do projeto</p>
+								
+								<label>Data:</label>
+                                <input id="dataBusca" class="form-control">
+                                <p class="help-block">Buscar pela data inicial do projeto</p>
+								
+								
+								<label>Status:</label>
+							<select id="statusBusca" class="form-control">
+                                    <option>Finalizado</option>
+                                    <option>Pendente</option>
+                                    
+                                </select>
+                                <p class="help-block">Buscar pelo status do projeto</p>
+                            
+							<button id="bottonBusca" type="button" class="btn btn-primary">Buscar</button>
+								
+								
+                            </div>
+						</div>
+
+                </div><br>
+			 </div>
+	
                 
                 <!-- /.row -->
 
@@ -125,54 +163,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>A</td>
-                                        <td>10/12/2015</td>
-                                        <td>10/01/2016</td>
-										<td>90 horas</td>
-                                        <td>Finalizado</td>
-                                    </tr>
-                                    <tr>
-                                        <td>B</td>
-                                        <td>10/12/2015</td>
-                                        <td>10/01/2016</td>
-										<td>90 horas</td>
-                                        <td>Finalizado</td>
-                                    </tr>
-                                    <tr>
-                                        <td>C</td>
-                                        <td>10/12/2015</td>
-                                        <td>10/01/2016</td>
-										<td>90 horas</td>
-                                        <td>Finalizado</td>
-                                    </tr>
-                                    <tr>
-                                        <td>D</td>
-                                        <td>10/12/2015</td>
-                                        <td>10/01/2016</td>
-										<td>90 horas</td>
-                                        <td>Pendente</td>
-                                    </tr>
-                                    <tr>
-                                        <td>E</td>
-                                        <td>10/12/2015</td>
-                                        <td>10/01/2016</td>
-										<td>90 horas</td>
-                                        <td>Pendente</td>
-                                    </tr>
-                                    <tr>
-                                        <td>F</td>
-                                        <td>10/12/2015</td>
-                                        <td>10/01/2016</td>
-										<td>90 horas</td>
-                                        <td>Pendente</td>
-                                    </tr>
-                                   
                                 </tbody>
                             </table>
                         </div>
                     </div>
-
+	</div>
+	</div>
                 <!-- /.row Gerar Reunioes -->
 				<div class="container-fluid">
 				

@@ -29,7 +29,7 @@
               <input type="password" class="form-control input-lg" placeholder="Senha">
             </div>
             <div class="form-group">
-              <a href="/sgp/home/"><button class="btn btn-primary btn-lg btn-block">Entrar</button></a>
+				<button class="btn btn-primary btn-lg btn-block">Entrar</button></a>
               
             </div>
           </form>

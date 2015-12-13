@@ -1,8 +1,11 @@
 br\com\sgp\util\Constants.class
 br\com\sgp\controller\IndexController.class
-br\com\sgp\repository\DAO\ConsultaDAO.class
-br\com\sgp\repository\model\ConsultaTO.class
 br\com\sgp\controller\RelatoriosController.class
 br\com\sgp\controller\ReunioesController.class
-br\com\sgp\repository\DAO\SessaoDAO.class
+br\com\sgp\repository\model\ReuniaoTO.class
+br\com\sgp\controller\AdmProjetoController.class
+br\com\sgp\controller\HomeController.class
 br\com\sgp\controller\ProjetosController.class
+br\com\sgp\controller\AdmReuniaoController.class
+br\com\sgp\repository\DAO\ReuniaoDAO.class
+br\com\sgp\repository\DAO\ProjetoDAO.class

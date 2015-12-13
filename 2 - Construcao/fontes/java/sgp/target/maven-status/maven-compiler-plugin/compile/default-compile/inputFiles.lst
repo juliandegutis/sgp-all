@@ -1,8 +1,11 @@
-D:\Projetos\SGP\sgp\src\main\java\br\com\sgp\repository\DAO\ConsultaDAO.java
-D:\Projetos\SGP\sgp\src\main\java\br\com\sgp\repository\DAO\SessaoDAO.java
+D:\Projetos\SGP\sgp\src\main\java\br\com\sgp\repository\DAO\ReuniaoDAO.java
+D:\Projetos\SGP\sgp\src\main\java\br\com\sgp\controller\AdmProjetoController.java
+D:\Projetos\SGP\sgp\src\main\java\br\com\sgp\controller\AdmReuniaoController.java
+D:\Projetos\SGP\sgp\src\main\java\br\com\sgp\controller\HomeController.java
+D:\Projetos\SGP\sgp\src\main\java\br\com\sgp\repository\model\ReuniaoTO.java
 D:\Projetos\SGP\sgp\src\main\java\br\com\sgp\controller\RelatoriosController.java
+D:\Projetos\SGP\sgp\src\main\java\br\com\sgp\repository\DAO\ProjetoDAO.java
 D:\Projetos\SGP\sgp\src\main\java\br\com\sgp\util\Constants.java
 D:\Projetos\SGP\sgp\src\main\java\br\com\sgp\controller\ReunioesController.java
-D:\Projetos\SGP\sgp\src\main\java\br\com\sgp\repository\model\ConsultaTO.java
 D:\Projetos\SGP\sgp\src\main\java\br\com\sgp\controller\ProjetosController.java
 D:\Projetos\SGP\sgp\src\main\java\br\com\sgp\controller\IndexController.java

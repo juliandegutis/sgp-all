@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<%@ taglib prefix="c" 
+    uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
 
     <meta charset="utf-8">
@@ -118,6 +119,7 @@
                                 <thead>
                                     <tr>
                                         <th>Local</th>
+                                        <th>Projeto</th>
                                         <th>Data</th>
                                         <th>Hora</th>
                                         <th>Status</th>
@@ -125,42 +127,12 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>A</td>
-                                        <td>10/12/2015</td>
-                                        <td>10/01/2016</td>
-                                        <td>Finalizado</td>
-                                    </tr>
-                                    <tr>
-                                        <td>B</td>
-                                        <td>10/12/2015</td>
-                                        <td>10/01/2016</td>
-                                        <td>Finalizado</td>
-                                    </tr>
-                                    <tr>
-                                        <td>C</td>
-                                        <td>10/12/2015</td>
-                                        <td>10/01/2016</td>
-                                        <td>Finalizado</td>
-                                    </tr>
-                                    <tr>
-                                        <td>D</td>
-                                        <td>10/12/2015</td>
-                                        <td>10/01/2016</td>
-                                        <td>Pendente</td>
-                                    </tr>
-                                    <tr>
-                                        <td>E</td>
-                                        <td>10/12/2015</td>
-                                        <td>10/01/2016</td>
-                                        <td>Pendente</td>
-                                    </tr>
-                                    <tr>
-                                        <td>F</td>
-                                        <td>10/12/2015</td>
-                                        <td>10/01/2016</td>
-                                        <td>Pendente</td>
-                                    </tr>
+                                   
+                                    <c:forEach items="${listaReunioes}" var="reuniao">
+										<tr> 
+											<td>${reuniao.nmLocal}</td> <td>${reuniao.nmProjeto}</td> <td>${reuniao.dtInicio}</td> <td>${reuniao.dtHorario}</td> <td>${reuniao.status}</td>
+										</tr>
+									</c:forEach>
                                    
                                 </tbody>
                             </table>
