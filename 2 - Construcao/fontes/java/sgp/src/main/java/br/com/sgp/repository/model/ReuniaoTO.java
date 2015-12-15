@@ -6,7 +6,7 @@ public class ReuniaoTO {
 	
 	private Long idReuniao;
 	private Long idProjeto;
-	private Date dtInicio;
+	private String dtInicio;
 	private Long idRecurso;
 	private Long vlHoras;
 	private String nmLocal;
@@ -26,11 +26,11 @@ public class ReuniaoTO {
 		this.idReuniao = idReuniao;
 	}
 
-	public Date getDtInicio() {
+	public String getDtInicio() {
 		return dtInicio;
 	}
 
-	public void setDtInicio(Date dtInicio) {
+	public void setDtInicio(String dtInicio) {
 		this.dtInicio = dtInicio;
 	}
 

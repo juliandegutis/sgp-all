@@ -7,6 +7,7 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Result;
 import br.com.sgp.repository.DAO.ProjetoDAO;
 import br.com.sgp.repository.DAO.ReuniaoDAO;
+import br.com.sgp.repository.DAO.SessaoDAO;
 
 @Controller
 @Path("/home")
@@ -19,9 +20,10 @@ public class HomeController {
 	public void home() {
 		ProjetoDAO daoP = new ProjetoDAO();
 		ReuniaoDAO daoR = new ReuniaoDAO();
-		result.include("projetosFinalizados", daoP.buscaProjetosFinalizados( 1L ) );
-		result.include("projetosPendentes", daoP.buscaProjetosPendentes( 1L ) );
-		result.include("reunioesAgendadas", daoR.buscaReunioesPendentes( 1L ) );
-		result.include("listaReunioes", daoR.buscaReunioes( 1L ) );
+		SessaoDAO daoS = new SessaoDAO();
+		result.include("projetosFinalizados", daoP.buscaProjetosFinalizados( daoS.buscaRecursoSessao() ) );
+		result.include("projetosPendentes", daoP.buscaProjetosPendentes( daoS.buscaRecursoSessao() ) );
+		result.include("reunioesAgendadas", daoR.buscaReunioesPendentes( daoS.buscaRecursoSessao() ) );
+		result.include("listaReunioes", daoR.buscaReunioes( daoS.buscaRecursoSessao() ) );
 	}
 }

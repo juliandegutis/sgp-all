@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<%@ taglib prefix="c" 
+    uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
 
     <meta charset="utf-8">
@@ -9,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Bootstrap Admin Template</title>
+    <title>SGP - Sistema de Gerenciamento de Projetos</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<%=request.getContextPath()%>/css/bootstrap.min.css" rel="stylesheet">
@@ -22,7 +23,9 @@
 
     <!-- Custom Fonts -->
     <link href="<%=request.getContextPath()%>/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
+	
+	<script src="<%=request.getContextPath()%>/js/projetos.js"></script>
+	
 </head>
 
 <body>
@@ -80,10 +83,13 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Administrador <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="/sgp/admreuniao/">Criar reuniao</a>
+                                <a href="/sgp/admreuniao/">Criar Reuniao</a>
                             </li>
                             <li>
-                                <a href="sgp/admprojeto/">Criar Projeto</a>
+                                <a href="/sgp/admprojeto/">Criar Projeto</a>
+                            </li>
+                            <li>
+                                <a href="/sgp/admalocacao/">Criar Alocacao</a>
                             </li>
                         </ul>
                     </li>
@@ -98,43 +104,19 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                
-             		<div class="col-lg-6">
-						<div id="opcaoBusca" class="form-group">
-								<label>Nome:</label>
-                                <input id="nomeBusca" class="form-control">
-                                <p class="help-block">Buscar pelo nome do projeto</p>
-								
-								<label>Data:</label>
-                                <input id="dataBusca" class="form-control">
-                                <p class="help-block">Buscar pela data inicial do projeto</p>
-													
-								<label>Status:</label>
-							<select id="statusBusca" class="form-control">
-                                    <option>Finalizado</option>
-                                    <option>Pendente</option>
-                                    
-                                </select>
-                                <p class="help-block">Buscar pelo status do projeto ou reuniao</p>
-                            
-							<button id="bottonBusca" type="button" class="btn btn-primary" onclick="buscaProjetos()">Buscar</button>
-								
-								
-                            </div>
-					</div>
-	
+                <div class="row">
+                    <div class="col-lg-12">
                 
                 <!-- /.row -->
 
-               
-
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                         <h2>Projetos</h2>
                         <div id="tabelaRelatorio" class="table-responsive">
                             <table id="tabelaRelat" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
+                                    	<th>Acao</th>
                                         <th>Projeto</th>
                                         <th>Data inicio</th>
                                         <th>Data fim</th>
@@ -144,11 +126,44 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <c:forEach items="${listaProjetos}" var="projeto">
+										<tr> 
+										<td class="botao"> <input type=image src="<%=request.getContextPath()%>/images/Clock_Icon.png" width="30" height="30" class="btn btn-info btn-lg" data-toggle="modal" onclick="loadAttr($(this))" data-target="#myModal">  </td> 
+											<td>${projeto.idProjeto}</td> <td>${projeto.nmProjeto}</td> <td>${projeto.dtInicio}</td> <td>${projeto.dtFim}</td> <td>${projeto.vlHoras}</td>
+										</tr>
+									</c:forEach>
                                 </tbody>
                             </table>
                         </div>
                     </div>
+			</div>
+		</div>
+		
+		<input type="hidden" id="idProjetoHidden" name="idProjetoHidden" value=""></input>
+		
+		<!-- MODAL -->
+		<div id="myModal" class="modal fade" role="dialog">
+  		<div class="modal-dialog">
 
+    	<!-- Modal content-->
+    	<div class="modal-content">
+     	 <div class="modal-header">
+      	  <button type="button" class="close" data-dismiss="modal">&times;</button>
+      	  <h4 class="modal-title">Lancar Horas</h4>
+     	 </div>
+      	<div class="modal-body">
+      	  <label>Data:</label>
+          <input id="dataLanc" class="form-control">
+          <label>Horas Gastas</label>
+          <input id="horasLanc" class="form-control">
+      	</div>
+      	<div class="modal-footer">
+      	  <button type="button" class="btn btn-default" data-dismiss="modal" onclick="lancarHoras()">Enviar</button>
+      	</div>
+  	  </div>
+  		</div>
+	</div>
+		
                 <!-- /.row Gerar Reunioes -->
 				<div class="container-fluid">
 				

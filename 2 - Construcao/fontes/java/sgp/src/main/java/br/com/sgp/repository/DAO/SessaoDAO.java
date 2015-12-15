@@ -5,31 +5,30 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import br.com.sgp.util.Constants;
 
 public class SessaoDAO {
-	
 	public boolean save( String nome ) {
 		Connection con = null; 
 		boolean retorno = false;
+		PreparedStatement pstmt = null;
 		try { 
 			con = getConnection(); 
-			PreparedStatement pstmt = con.prepareStatement( Constants.SCRIPT_INSERT_SESSAO ); 
+			pstmt = con.prepareStatement( Constants.SCRIPT_INSERT_SESSAO ); 
 			pstmt.setString(1, nome);
 			retorno = pstmt.execute(); } 
 		catch (SQLException e) { 
 			e.printStackTrace(); 
 		} 
 		finally { 
-			closeConnnection(con); 
+			closeStatement(pstmt);
+			closeConnection(con); 
 		} 
 		return retorno;
 	}
 	
-	public String findSessionByClient() {
+	public Long buscaRecursoSessao() {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -40,12 +39,13 @@ public class SessaoDAO {
 			rs = pstmt.executeQuery();
 			
 			while( rs.next() ) {
-				return rs.getString("NM_USUARIO");
+				return rs.getLong("ID_RECURSO");
 			}			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally { 
-			closeConnnection(con); 
+			closeStatement(pstmt);
+			closeConnection(con); 
 		} 
 		
 		return null;
@@ -53,11 +53,27 @@ public class SessaoDAO {
 	
 	public Connection getConnection() throws SQLException { 
 		Connection con = null; 
-		con = DriverManager .getConnection("jdbc:postgresql://localhost/guiamed?user=postgres&password=admin"); 
+		con = DriverManager .getConnection("jdbc:postgresql://localhost/sgpprd?user=postgres&password=admin"); 
 		return con;
 	} 
 	
-	public void closeConnnection(Connection con) { 
+	public void closeConnection(Connection con) { 
+		try { 
+			con.close(); 
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+	}
+	
+	public void closeStatement(PreparedStatement con) { 
+		try { 
+			con.close(); 
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+	}
+	
+	public void closeResultSet(ResultSet con) { 
 		try { 
 			con.close(); 
 		} catch (SQLException e) {

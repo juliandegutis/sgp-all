@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Bootstrap Admin Template</title>
+    <title>SGP - Sistema de Gerenciamento de Projetos</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<%=request.getContextPath()%>/css/bootstrap.min.css" rel="stylesheet">
@@ -82,13 +82,13 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Administrador <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="ADMreuniao.html">Criar reuniao</a>
+                                <a href="/sgp/admreuniao/">Criar Reuniao</a>
                             </li>
                             <li>
-                                <a href="ADMprojetos.html">Criar Projeto</a>
+                                <a href="/sgp/admprojeto/">Criar Projeto</a>
                             </li>
-							<li>
-                                <a href="ADMusuario.html">Criar usuario</a>
+                            <li>
+                                <a href="/sgp/admalocacao/">Criar Alocacao</a>
                             </li>
                         </ul>
                     </li>
@@ -112,7 +112,7 @@
                
 
                 <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                         <h2>Reunioes</h2>
                         <div id="tabelaRelatorio" class="table-responsive">
                             <table id="tabelaRelat" class="table table-bordered table-hover">

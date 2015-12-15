@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Bootstrap Admin Template</title>
+    <title>SGP - Sistema de Gerenciamento de Projetos</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<%=request.getContextPath()%>/css/bootstrap.min.css" rel="stylesheet">
@@ -22,7 +22,8 @@
 
     <!-- Custom Fonts -->
     <link href="<%=request.getContextPath()%>/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
+	
+	<script src="<%=request.getContextPath()%>/js/admprojeto.js"></script>
 
 </head>
 
@@ -81,10 +82,13 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Administrador <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="/sgp/admreuniao/">Criar reuniao</a>
+                                <a href="/sgp/admreuniao/">Criar Reuniao</a>
                             </li>
                             <li>
                                 <a href="#">Criar Projeto</a>
+                            </li>
+                            <li>
+                                <a href="/sgp/admalocacao/">Criar Alocacao</a>
                             </li>
                         </ul>
                     </li>
@@ -132,25 +136,10 @@
 								<label>Data Inicio:</label>
                                 <input id="DataIP" class="form-control">
                                 <p class="help-block">Entre com a data inicial do projeto</p>
-								
-								<label>Data final:</label>
-                                <input id="DataFP" class="form-control">
-                                <p class="help-block">Entre com a data final do projeto</p>
-						
-								
-
-							<label>Convocados:</label>
-							<select id="convocadosP" multiple class="form-control">
-                                    <option>Augusto</option>
-                                    <option>Nivaldo</option>
-									<option>Lorena</option>
-									<option>Julian</option>
-									<option>William</option>
-                                    
-                                </select>
-                                <p class="help-block">Selecione os funcionários convocados para o projeto</p>
                             
-							<button id="bottonBusca" type="button" class="btn btn-primary">Criar</button>							
+                            <br>
+                            <br>
+							<button id="bottonBusca" type="button" class="btn btn-primary" onclick="criarReuniao()">Criar</button>							
                         </div>						
                     </div>
                 </div>

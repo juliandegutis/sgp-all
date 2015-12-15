@@ -1,5 +1,7 @@
 package br.com.sgp.controller;
 
+import java.text.ParseException;
+
 import javax.inject.Inject;
 
 import br.com.caelum.vraptor.Controller;
@@ -18,12 +20,13 @@ public class AdmReuniaoController {
 	@Path("/")
 	public void admreuniao() {	
 		ProjetoDAO daoP = new ProjetoDAO();
-		result.include("listaProjeto", daoP.buscaProjetos());
+		result.include("listaProjetos", daoP.buscaProjetos());
 	}
 	
 	
 	@Path("/cadastra")
-	public void cadastra( String nmLocal, String dtInicio, String dtHorario, Long idProjeto ) {
+	public void cadastra( String nmLocal, String dtInicio, String dtHorario, Long idProjeto ) throws ParseException {
 		ReuniaoDAO daoR = new ReuniaoDAO();
+		daoR.save(nmLocal, dtInicio, dtHorario, idProjeto);
 	}
 }

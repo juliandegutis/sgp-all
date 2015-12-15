@@ -15,19 +15,23 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.com.sgp.repository.DAO.SessaoDAO;
 
 @Controller
 public class IndexController {
 	
-	@SuppressWarnings("cdi-ambiguous-dependency")
 	@Inject
     private Result result;
-
-    private String nomeCliente;
 	
 	@Path("/")
 	public void index() {
 
+	}
+	
+	@Path("/login")
+	public void login( String nomeRecurso) {
+		SessaoDAO dao = new SessaoDAO();
+		dao.save( nomeRecurso );
 	}
 
 }

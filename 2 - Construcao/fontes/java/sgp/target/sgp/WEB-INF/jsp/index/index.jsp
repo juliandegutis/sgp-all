@@ -3,13 +3,13 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
-		<title>Bootstrap Login Form</title>
+		<title>SGP - Login</title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link href="<%=request.getContextPath()%>/css/bootstrap.min.css" rel="stylesheet">
+	
+		<script src="<%=request.getContextPath()%>/js/index.js"></script>
 
-
-		<link href="<%=request.getContextPath()%>/css/styles.css" rel="stylesheet">
 	</head>
 	<body>
 <!--login modal-->
@@ -21,18 +21,13 @@
           <h1 class="text-center">Logar</h1>
       </div>
       <div class="modal-body">
-          <form class="form col-md-12 center-block">
             <div class="form-group">
-              <input type="text" class="form-control input-lg" placeholder="Email">
+              <input type="text" id="nomeRecurso" class="form-control input-lg" placeholder="Nome">
             </div>
             <div class="form-group">
               <input type="password" class="form-control input-lg" placeholder="Senha">
             </div>
-            <div class="form-group">
-				<button class="btn btn-primary btn-lg btn-block">Entrar</button></a>
-              
-            </div>
-          </form>
+				<button class="btn btn-primary btn-lg" onclick="login()">Entrar</button>
       </div>
       <div class="modal-footer">
           	

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<%@ taglib prefix="c" 
+    uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
 
     <meta charset="utf-8">
@@ -9,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Bootstrap Admin Template</title>
+    <title>SGP - Sistema de Gerenciamento de Projetos</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<%=request.getContextPath()%>/css/bootstrap.min.css" rel="stylesheet">
@@ -80,10 +81,13 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Administrador <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="/sgp/admreuniao/">Criar reuniao</a>
+                                <a href="/sgp/admreuniao/">Criar Reuniao</a>
                             </li>
                             <li>
                                 <a href="/sgp/admprojeto/">Criar Projeto</a>
+                            </li>
+                            <li>
+                                <a href="/sgp/admalocacao/">Criar Alocacao</a>
                             </li>
                         </ul>
                     </li>
@@ -100,49 +104,8 @@
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-					<div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h1 class="panel-title">Relatorios</h1>
-                            </div>
-                            <div class="panel-body">
 
-						<br>
-						<div class="col-lg-6">
-						<div id="opcaoBusca" class="form-group">
-                                <label>Buscar por:</label>
-                                <select id="opBusca" class="form-control">
-                                    <option>Reunioes</option>
-                                    <option>Projetos</option>
-                                    
-                                </select>
-								<br>
-								<label>Nome:</label>
-                                <input id="nomeBusca" class="form-control">
-                                <p class="help-block">Buscar pelo nome do projeto ou pelo local da reuniao</p>
-								
-								<label>Data:</label>
-                                <input id="dataBusca" class="form-control">
-                                <p class="help-block">Buscar pela data inicial do projeto ou pelaa data da reuniao</p>
-								
-								
-								<label>Status:</label>
-							<select id="statusBusca" class="form-control">
-                                    <option>Finalizado</option>
-                                    <option>Pendente</option>
-                                    
-                                </select>
-                                <p class="help-block">Buscar pelo status do projeto ou reuniao</p>
-                            
-							<button id="bottonBusca" type="button" class="btn btn-primary">Buscar</button>
-								
-								
-                            </div>
-						</div>
-
-                </div><br>
-			 </div>
-            
-
+         
                 
                 <!-- /.row -->
 
@@ -155,58 +118,20 @@
                             <table id="tabelaRelat" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
+                                        <th>ID</th>
                                         <th>Projeto</th>
                                         <th>Data inicio</th>
                                         <th>Data fim</th>
 										<th>Horas gastas</th>
-                                        <th>Status</th>
 										
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>A</td>
-                                        <td>10/12/2015</td>
-                                        <td>10/01/2016</td>
-										<td>90 horas</td>
-                                        <td>Finalizado</td>
-                                    </tr>
-                                    <tr>
-                                        <td>B</td>
-                                        <td>10/12/2015</td>
-                                        <td>10/01/2016</td>
-										<td>90 horas</td>
-                                        <td>Finalizado</td>
-                                    </tr>
-                                    <tr>
-                                        <td>C</td>
-                                        <td>10/12/2015</td>
-                                        <td>10/01/2016</td>
-										<td>90 horas</td>
-                                        <td>Finalizado</td>
-                                    </tr>
-                                    <tr>
-                                        <td>D</td>
-                                        <td>10/12/2015</td>
-                                        <td>10/01/2016</td>
-										<td>90 horas</td>
-                                        <td>Pendente</td>
-                                    </tr>
-                                    <tr>
-                                        <td>E</td>
-                                        <td>10/12/2015</td>
-                                        <td>10/01/2016</td>
-										<td>90 horas</td>
-                                        <td>Pendente</td>
-                                    </tr>
-                                    <tr>
-                                        <td>F</td>
-                                        <td>10/12/2015</td>
-                                        <td>10/01/2016</td>
-										<td>90 horas</td>
-                                        <td>Pendente</td>
-                                    </tr>
-                                   
+                                    <c:forEach items="${listaProjetos}" var="projeto">
+										<tr> 
+											<td>${projeto.idProjeto}</td> <td>${projeto.nmProjeto}</td> <td>${projeto.dtInicio}</td> <td>${projeto.dtFim}</td> <td>${projeto.vlHoras}</td>
+										</tr>
+									</c:forEach>
                                 </tbody>
                             </table>
                         </div>
@@ -214,56 +139,25 @@
 
                 <!-- /.row -->
 					<div class="col-lg-6">
-                        <h2>Reunioes</h2>
+                        <h2>Horas Lancadas</h2>
                         <div id="tabelaRelatorio" class="table-responsive">
                             <table id="tabelaRelat" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Local</th>
+                                        <th>ID</th>
+                                        <th>Projeto</th>
+                                        <th>Recurso</th>
                                         <th>Data</th>
-                                        <th>Hora</th>
-                                        <th>Status</th>
+                                        <th>Valor</th>
 										
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>A</td>
-                                        <td>10/12/2015</td>
-                                        <td>10/01/2016</td>
-                                        <td>Finalizado</td>
-                                    </tr>
-                                    <tr>
-                                        <td>B</td>
-                                        <td>10/12/2015</td>
-                                        <td>10/01/2016</td>
-                                        <td>Finalizado</td>
-                                    </tr>
-                                    <tr>
-                                        <td>C</td>
-                                        <td>10/12/2015</td>
-                                        <td>10/01/2016</td>
-                                        <td>Finalizado</td>
-                                    </tr>
-                                    <tr>
-                                        <td>D</td>
-                                        <td>10/12/2015</td>
-                                        <td>10/01/2016</td>
-                                        <td>Pendente</td>
-                                    </tr>
-                                    <tr>
-                                        <td>E</td>
-                                        <td>10/12/2015</td>
-                                        <td>10/01/2016</td>
-                                        <td>Pendente</td>
-                                    </tr>
-                                    <tr>
-                                        <td>F</td>
-                                        <td>10/12/2015</td>
-                                        <td>10/01/2016</td>
-                                        <td>Pendente</td>
-                                    </tr>
-                                   
+                                    <c:forEach items="${listaHoras}" var="hora">
+										<tr> 
+											<td>${hora.idProjeto}</td> <td>${hora.nmProjeto}</td> <td>${hora.nmRecurso}</td> <td>${hora.dtLanc}</td> <td>${hora.vlHora}</td>
+										</tr>
+									</c:forEach>
                                 </tbody>
                             </table>
                         </div>

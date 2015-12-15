@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<%@ taglib prefix="c" 
+    uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
 
     <meta charset="utf-8">
@@ -9,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Bootstrap Admin Template</title>
+    <title>SGP - Sistema de Gerenciamento de Projetos</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<%=request.getContextPath()%>/css/bootstrap.min.css" rel="stylesheet">
@@ -22,6 +23,7 @@
 
     <!-- Custom Fonts -->
     <link href="<%=request.getContextPath()%>/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <script src="<%=request.getContextPath()%>/js/admreuniao.js"></script>
 
 </head>
 
@@ -80,10 +82,13 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Administrador <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="#">Criar reuniao</a>
+                                <a href="#">Criar Reuniao</a>
                             </li>
                             <li>
                                 <a href="/sgp/admprojeto/">Criar Projeto</a>
+                            </li>
+                            <li>
+                                <a href="/sgp/admalocacao/">Criar Alocacao</a>
                             </li>
                         </ul>
                     </li>
@@ -126,21 +131,17 @@
 								
 								<label>Hora:</label>
                                 <input id="HoraR" class="form-control">
-                                <p class="help-block">Entre com a data da reuniao</p>
+                                <p class="help-block">Entre com o horário da reuniao</p>
 								
-
-							<label>Convocados:</label>
-							<select id="convocadosR" multiple class="form-control">
-                                    <option>Augusto</option>
-                                    <option>Nivaldo</option>
-									<option>Lorena</option>
-									<option>Julian</option>
-									<option>William</option>
-                                    
-                                </select>
-                                <p class="help-block">Selecione os funcionários convocados para reuniao</p>
-                            
-							<button id="bottonBusca" type="button" class="btn btn-primary">Criar</button>
+								<label>Projeto:</label>
+								<select id="statusBusca" class="form-control">
+                                    <c:forEach items="${listaProjetos}" var="projeto">
+                                    	<option value="${projeto.idProjeto}">${projeto.nmProjeto}</option>
+									</c:forEach>
+                                </select>	
+                            <br>
+                            <br>
+							<button id="bottonBusca" type="button" class="btn btn-primary" onclick="criarReuniao()">Criar</button>
 							
                         </div>
 						
